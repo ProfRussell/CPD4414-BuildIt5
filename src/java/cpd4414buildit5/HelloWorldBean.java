@@ -12,6 +12,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.inject.Named;
 @ManagedBean
 @ApplicationScoped
 public class HelloWorldBean implements Serializable{
+    @Size(min = 3, message = "Must be at least three characters.")
     private String name = "World";
 
     public String getName() {

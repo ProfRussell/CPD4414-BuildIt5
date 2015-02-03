@@ -16,8 +16,9 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LoginBean {
 
-    private String username;
-    private String password;
+    private String username = "";
+    private String password = "";
+    private boolean loggedIn = false;
 
     public String getUsername() {
         return username;
@@ -35,7 +36,15 @@ public class LoginBean {
         this.password = password;
     }
 
-    public boolean doLogin() {
-        return username.equals("user") && password.equals("pass");
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+    public void doLogin() {
+        loggedIn = username.equals("user") && password.equals("pass");
     }
 }
